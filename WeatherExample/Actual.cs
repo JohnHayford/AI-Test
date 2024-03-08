@@ -2,6 +2,7 @@ public class CalculatedWeatherResult
 {
     public async Task<IEnumerable<AlertData>> GetCalculatedWeatherResultAsync(decimal lat, decimal lon, int dt)
     {
+        //Assumes forecast data is fetched and stored in advance.
         var forecasts = (await DataContext.Forecasts.Where(x => x.Latitude == lat && x.Longitude == lon)
              .Where(x => x.Date >= dt)
              .OrderBy(x => x.Date)
