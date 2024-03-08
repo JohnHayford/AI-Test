@@ -59,16 +59,11 @@ public class CalculatedWeatherResult
     }
     public class Alert
     {
-        public Alert()
-        {
-        }
-
         public AlertData Fertilizer { get; set; }
         public AlertData Manure { get; set; }
     }
     public class AlertData
     {
-        public AlertData() { }
         public string Message { get; set; }
         public decimal Probability { get; set; }
         public decimal Amount { get; set; }
@@ -77,21 +72,6 @@ public class CalculatedWeatherResult
 }
   public class OpenWeatherMapHourlyData
   {
-      [JsonPropertyName("clouds")]
-      public decimal Cloudiness { get; set; }
-
-      [JsonPropertyName("dew_point")]
-      public decimal DewPoint { get; set; }
-
-      [JsonPropertyName("feels_like")]
-      public decimal FeelsLike { get; set; }
-
-      [JsonPropertyName("humidity")]
-      public decimal Humidity { get; set; }
-
-      [JsonPropertyName("pressure")]
-      public decimal Pressure { get; set; }
-
       [JsonPropertyName("rain")]
       public OpenWeatherMapPrecipData? Rain { get; set; }
 
@@ -99,31 +79,7 @@ public class CalculatedWeatherResult
 
       [JsonPropertyName("snow")]
       public OpenWeatherMapPrecipData? Snow { get; set; }
-
-      [JsonPropertyName("temp")]
-      public decimal Temperature { get; set; }
-
-      [JsonPropertyName("dt")]
-      public long TimeUTC { get; set; }
-
-      [JsonPropertyName("uvi")]
-      public decimal UVIndex { get; set; }
-
-      [JsonPropertyName("visibility")]
-      public decimal Visibility { get; set; }
-
-      [JsonPropertyName("weather")]
-      public IEnumerable<OpenWeatherMapWeatherDescription> Weather { get; set; }
-
-      [JsonPropertyName("wind_deg")]
-      public decimal WindDirectionDegrees { get; set; }
-
-      [JsonPropertyName("wind_gust")]
-      public decimal? WindGust { get; set; }
-
-      [JsonPropertyName("wind_speed")]
-      public decimal? WindSpeed { get; set; }
-
+     
       [JsonPropertyName("pop")]
       public decimal PercentOfPrecipitation { get; set; }
   }
