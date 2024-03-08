@@ -2,7 +2,6 @@ public class CalculatedWeatherResult
 {
        public static AlertData FertilizerWarning(IEnumerable<OpenWeatherMapHourlyData> parsedForecasts)
     {
-
         var response = new AlertData()
         {
             Amount = parsedForecasts.Take(12).Sum(f => f.TotalPrecipitationAmount).Convert(UnitsConverter.Units.Millimeters, UnitsConverter.Units.Inches),
@@ -22,7 +21,8 @@ public class CalculatedWeatherResult
         {
             Amount = parsedForecasts.Take(24).Sum(f => f.TotalPrecipitationAmount).Convert(UnitsConverter.Units.Millimeters, UnitsConverter.Units.Inches),
             Probability = parsedForecasts.Take(24).Max(f => f.PercentOfPrecipitation),
-        }; if (response.Probability > .4m && response.Amount > 0.4m)
+        }; 
+       if (response.Probability > .4m && response.Amount > 0.4m)
         {
             response.IsAlert = true;
             response.Message = "Manure Warning";
@@ -36,7 +36,8 @@ public class CalculatedWeatherResult
         {
             Amount = parsedForecasts.Take(24).Sum(f => f.TotalPrecipitationAmount).Convert(UnitsConverter.Units.Millimeters, UnitsConverter.Units.Inches),
             Probability = parsedForecasts.Take(24).Max(f => f.PercentOfPrecipitation),
-        }; if (response.Probability > .5m && response.Amount > 0.5m)
+        }; 
+       if (response.Probability > .5m && response.Amount > 0.5m)
         {
             response.IsAlert = true;
             response.Message = "Manure Violation";
@@ -50,7 +51,8 @@ public class CalculatedWeatherResult
         {
             Amount = parsedForecasts.Take(12).Sum(f => f.TotalPrecipitationAmount).Convert(UnitsConverter.Units.Millimeters, UnitsConverter.Units.Inches),
             Probability = parsedForecasts.Take(12).Max(f => f.PercentOfPrecipitation),
-        }; if (response.Probability > .6m && response.Amount > 1m)
+        }; 
+       if (response.Probability > .6m && response.Amount > 1m)
         {
             response.IsAlert = true;
             response.Message = "Fertilizer Violation";
